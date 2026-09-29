@@ -6,10 +6,8 @@
     "dev": "pnpm --filter @workspace/git-club-showcase run dev",
     "serve": "pnpm --filter @workspace/git-club-showcase run serve",
     "preview": "pnpm --filter @workspace/git-club-showcase run serve",
-    "preinstall": "node -e \"if (!/pnpm/.test(process.env.npm_config_user_agent || '')) { console.warn('Please use pnpm'); }\"",
-    "build": "pnpm run typecheck && pnpm -r --if-present run build",
-    "typecheck:libs": "tsc --build",
-    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
+    "build": "pnpm --filter @workspace/git-club-showcase run build",
+    "typecheck": "pnpm --filter @workspace/git-club-showcase run typecheck"
   },
   "packageManager": "pnpm@10.5.2",
   "private": true,
@@ -17,6 +15,7 @@
     "@replit/connectors-sdk": "^0.4.3"
   },
   "devDependencies": {
+    "@esbuild/win32-x64": "^0.28.2",
     "@rollup/rollup-win32-x64-msvc": "4.63.1",
     "@tailwindcss/oxide-win32-x64-msvc": "^4.3.3",
     "lightningcss-win32-x64-msvc": "^1.33.0",
