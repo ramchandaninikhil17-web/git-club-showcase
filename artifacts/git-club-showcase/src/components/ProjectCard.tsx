@@ -12,23 +12,47 @@ interface ProjectCardProps {
 }
 
 export function Visual({ project, className = '' }: { project: Project; className?: string }) {
+  const [imgFailed, setImgFailed] = useState(false);
+  const isImageSrc =
+    Boolean(project.cover) &&
+    (project.cover.startsWith('http') ||
+      project.cover.startsWith('/') ||
+      /\.(png|jpe?g|webp|svg|gif)($|\?)/i.test(project.cover));
+
+  const fallbackGradient = project.cover?.startsWith('linear-gradient')
+    ? project.cover
+    : `linear-gradient(135deg, #07090e 0%, #101828 50%, ${project.accent || '#d4af5a'} 100%)`;
+
   return (
     <div
-      className={`relative overflow-hidden select-none ${className}`}
-      style={{ background: project.cover }}
+      className={`relative overflow-hidden select-none bg-muted/40 ${className}`}
+      style={{
+        background: !isImageSrc || imgFailed ? fallbackGradient : undefined,
+      }}
     >
+      {/* Real Project Image with Lazy Loading & Fallback */}
+      {isImageSrc && !imgFailed && (
+        <img
+          src={project.cover}
+          alt={project.name}
+          loading="lazy"
+          onError={() => setImgFailed(true)}
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+        />
+      )}
+
       {/* Subtle Geometric Overlay */}
       <div
-        className="absolute inset-0 opacity-30 pointer-events-none"
+        className="absolute inset-0 opacity-25 pointer-events-none"
         style={{
           backgroundImage:
-            'linear-gradient(120deg, transparent 18%, rgba(255,255,255,.2) 19%, transparent 20%), linear-gradient(35deg, transparent 50%, rgba(255,255,255,.12) 51%, transparent 52%)',
+            'linear-gradient(120deg, transparent 18%, rgba(255,255,255,.18) 19%, transparent 20%), linear-gradient(35deg, transparent 50%, rgba(255,255,255,.1) 51%, transparent 52%)',
           backgroundSize: '55px 55px, 85px 85px',
         }}
       />
 
       {/* Category Pill */}
-      <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-black/75 px-2.5 py-1 backdrop-blur-md border border-white/15 text-white/95 shadow-md">
+      <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-black/80 px-2.5 py-1 backdrop-blur-md border border-white/15 text-white/95 shadow-md">
         <span className="mono text-[10px] font-semibold tracking-wide text-white/95">{project.category}</span>
       </div>
 

@@ -3,17 +3,23 @@ import { Link, useLocation } from 'wouter';
 import { Sun, Moon, Github, Menu, X, ArrowUpRight, Search, GitBranch, Instagram } from 'lucide-react';
 
 export function BrandMark({ compact = false }: { compact?: boolean }) {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <Link href="/" data-testid="link-brand" className="group flex items-center gap-3 select-none">
-      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-primary/40 bg-card p-1 shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:border-primary group-hover:shadow-[0_0_15px_rgba(212,175,90,0.3)]">
-        <img
-          src="/gitclub-logo.png"
-          alt="Git Club CHARUSAT Logo"
-          className="h-full w-full object-contain"
-          onError={(e) => {
-            e.currentTarget.style.display = 'none';
-          }}
-        />
+      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-primary/40 bg-card p-1 shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:border-primary group-hover:shadow-[0_0_15px_rgba(212,175,90,0.3)] flex items-center justify-center">
+        {!imgError ? (
+          <img
+            src="/gitclub-logo.png"
+            alt="Git Club CHARUSAT Logo"
+            className="h-full w-full object-contain"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5 text-primary">
+            <GitBranch size={22} className="text-primary animate-pulse" />
+          </div>
+        )}
       </div>
       {!compact && (
         <div className="flex flex-col">
@@ -35,9 +41,9 @@ export function Navbar() {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('gc-theme');
       if (stored) return stored === 'dark';
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return true; // Default to GitHub Dark / OLED
     }
-    return false;
+    return true;
   });
 
   const [location, setLocation] = useLocation();

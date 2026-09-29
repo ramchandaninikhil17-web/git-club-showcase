@@ -424,10 +424,22 @@ export function ProjectDetailPage() {
                   }`}
                 >
                   <div
-                    className={`${idx === 0 ? 'aspect-[2.2]' : 'aspect-[1.5]'} relative w-full`}
-                    style={{ background: frame.visual }}
+                    className={`${idx === 0 ? 'aspect-[2.2]' : 'aspect-[1.5]'} relative w-full overflow-hidden`}
+                    style={{
+                      background: frame.visual?.startsWith('linear-gradient')
+                        ? frame.visual
+                        : `linear-gradient(135deg, #07090e 0%, #101828 50%, ${project.accent || '#d4af5a'} 100%)`,
+                    }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    {(frame.visual?.startsWith('http') || frame.visual?.startsWith('/') || /\.(png|jpe?g|webp|svg)($|\?)/i.test(frame.visual)) && (
+                      <img
+                        src={frame.visual}
+                        alt={frame.title}
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4 text-white">
                       <span className="mono text-[10px] uppercase font-bold tracking-wider text-accent">
                         Frame 0{idx + 1}
