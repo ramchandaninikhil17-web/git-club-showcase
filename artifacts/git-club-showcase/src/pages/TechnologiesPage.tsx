@@ -25,14 +25,14 @@ export function TechnologiesPage() {
       <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-end">
         <div className="animate-rise">
           <p className="mono text-[10px] font-bold uppercase tracking-[.22em] text-primary">
-            THE TOOLBOX
+            TECHNOLOGIES
           </p>
           <h1 className="display mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight text-foreground">
-            Built with <span className="text-primary">curiosity & purpose.</span>
+            Technologies & <span className="text-primary">Tooling.</span>
           </h1>
         </div>
         <p className="max-w-xl text-sm sm:text-base leading-relaxed text-muted-foreground">
-          Technologies are not trophies at Git Club. They are the materials students reach for when the campus challenge demands low latency, offline autonomy, or private inference.
+          Browse the languages, frameworks, edge runtimes, and tools used to build verified Git Club student projects.
         </p>
       </div>
 

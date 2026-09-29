@@ -53,7 +53,7 @@ export function ProjectsPage() {
 
   // Set document title
   useEffect(() => {
-    document.title = 'Project Explorer & Directory — Git Club CHARUSAT';
+    document.title = 'Projects Directory — Git Club CHARUSAT';
   }, []);
 
   const loadProjects = () => {

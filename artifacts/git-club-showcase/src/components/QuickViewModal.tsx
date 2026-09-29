@@ -114,11 +114,11 @@ export function QuickViewModal({ project, onClose }: QuickViewModalProps) {
           {project.description}
         </p>
 
-        {/* 15-Second Brief */}
+        {/* At a Glance */}
         {project.brief && (
           <div className="mt-5 rounded-xl border border-border/80 bg-muted/30 p-4 space-y-2 text-xs">
             <p className="mono font-bold text-[10px] uppercase tracking-wider text-primary">
-              15-Second Executive Brief
+              At a Glance
             </p>
             <div className="grid gap-2">
               <div className="flex gap-2">

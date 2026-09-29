@@ -148,6 +148,9 @@ export function ProjectDetailPage() {
           <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             {/* Left: Metadata & Value Prop */}
             <div>
+              <p className="mono text-[10px] font-bold uppercase tracking-[.22em] text-primary mb-2.5">
+                PROJECT OVERVIEW
+              </p>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="mono text-xs font-bold uppercase tracking-wider text-muted-foreground bg-muted px-2.5 py-0.5 rounded-md">
                   {project.category}
@@ -244,12 +247,12 @@ export function ProjectDetailPage() {
             </div>
           </div>
 
-          {/* 15-Second Executive Brief Cards */}
+          {/* At a Glance Cards */}
           {project.brief && (
             <div className="mt-12 rounded-2xl border border-border bg-muted/30 p-5 sm:p-6">
               <div className="flex items-center gap-2 mono text-xs font-bold uppercase tracking-wider text-primary">
                 <Sparkles size={13} />
-                <span>Executive Summary</span>
+                <span>At a Glance</span>
               </div>
 
               <div className="mt-4 grid gap-4 md:grid-cols-3">

@@ -133,18 +133,14 @@ export function HomePage() {
                 </Link>
               </div>
 
-              {/* 3D Floating Feature Pills */}
-              <div className="mt-8 flex flex-wrap items-center gap-2.5 pt-4 border-t border-border/70">
-                <div className="animate-float-3d flex items-center gap-1.5 rounded-full border border-primary/40 bg-card/90 px-3 py-1 text-xs font-semibold text-foreground shadow-sm backdrop-blur-md">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="mono text-[10px] text-primary font-bold">100% Student Engineered</span>
-                </div>
-                <div className="animate-float-3d-delayed flex items-center gap-1.5 rounded-full border border-border/80 bg-card/90 px-3 py-1 text-xs font-semibold text-muted-foreground shadow-2xs backdrop-blur-md">
-                  <span className="mono text-[10px]">CSPIT · CHARUSAT</span>
-                </div>
-                <div className="animate-float-3d flex items-center gap-1.5 rounded-full border border-border/80 bg-card/90 px-3 py-1 text-xs font-semibold text-muted-foreground shadow-2xs backdrop-blur-md">
-                  <span className="mono text-[10px]">Edge Architecture</span>
-                </div>
+              {/* Institutional Context */}
+              <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-border/60 text-xs text-muted-foreground">
+                <span className="flex items-center gap-1.5 font-semibold text-foreground">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  Verified Student Software
+                </span>
+                <span>·</span>
+                <span>CSPIT · CHARUSAT Campus</span>
               </div>
             </div>
 
@@ -322,7 +318,7 @@ export function HomePage() {
               PROJECT EXPLORER
             </p>
             <h2 className="display mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-              Software with a point of view.
+              Explore Projects
             </h2>
             <p className="mt-2 max-w-xl text-xs sm:text-sm text-muted-foreground">
               Filter by category or explore the complete directory of verified student software.
@@ -392,19 +388,19 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 4. TECHNOLOGY DISCOVERY */}
+      {/* 4. TECHNOLOGIES */}
       <section className="border-t border-border bg-muted/30 py-16 lg:py-20">
         <div className="mx-auto max-w-[1380px] px-5 lg:px-10">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <div>
               <p className="mono text-[10px] font-bold uppercase tracking-[.22em] text-primary">
-                TECHNOLOGY TOOLBOX
+                TECHNOLOGIES
               </p>
               <h2 className="display mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-                Built with modern stacks.
+                Technologies
               </h2>
               <p className="mt-2 max-w-xl text-xs sm:text-sm text-muted-foreground">
-                Git Club builders choose practical, production-ready tools tailored to each problem.
+                Frameworks, languages, and tools powering Git Club software builds.
               </p>
             </div>
 
@@ -443,44 +439,6 @@ export function HomePage() {
                 </div>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. SMALL GIT CLUB IDENTITY BANNER */}
-      <section className="mx-auto max-w-[1380px] px-5 py-14 lg:px-10">
-        <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-xs">
-          <div className="max-w-xl">
-            <span className="mono text-[10px] font-bold uppercase tracking-wider text-primary">
-              GIT CLUB · CSPIT · CHARUSAT
-            </span>
-            <h3 className="display mt-1.5 text-xl sm:text-2xl font-bold text-foreground">
-              Official Student Tech Community
-            </h3>
-            <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Empowering students at Chandubhai S. Patel Institute of Technology to build, share, and ship open-source engineering projects.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-3 shrink-0">
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-xs font-bold text-primary-foreground shadow-xs hover:scale-[1.02] transition-transform"
-            >
-              <GitBranch size={13} />
-              <span>Explore Projects</span>
-            </Link>
-
-            <a
-              href="https://github.com/gitclub-charusat"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-muted/50 px-3.5 py-2.5 text-xs font-semibold text-foreground hover:bg-muted transition-colors"
-            >
-              <Github size={14} />
-              <span>GitHub</span>
-              <ArrowUpRight size={11} className="text-muted-foreground" />
-            </a>
           </div>
         </div>
       </section>
