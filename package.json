@@ -1,0 +1,12 @@
+{
+  "name": "git-club-project-showcase-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --prefix Git-Club-Project-Showcase dev",
+    "serve": "pnpm --prefix Git-Club-Project-Showcase serve",
+    "preview": "pnpm --prefix Git-Club-Project-Showcase preview",
+    "build": "pnpm --prefix Git-Club-Project-Showcase build",
+    "typecheck": "pnpm --prefix Git-Club-Project-Showcase typecheck"
+  }
+}
