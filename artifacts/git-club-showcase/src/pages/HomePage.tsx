@@ -57,9 +57,41 @@ export function HomePage() {
 
   return (
     <main>
-      {/* 1. HERO SECTION */}
-      <section className="grid-paper relative overflow-hidden border-b border-border">
-        <div className="mx-auto max-w-[1380px] px-5 pb-16 pt-12 lg:px-10 lg:pb-24 lg:pt-20">
+      {/* 1. PROJECT-FIRST HERO SECTION */}
+      <section className="relative overflow-hidden border-b border-border bg-background">
+        {/* Subtle Neural Constellation Background Visual */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-25">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="hero-neural-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#d4af5a" stopOpacity="0.12" />
+                <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hero-neural-glow)" />
+            {/* Neural network lines */}
+            <g stroke="rgba(212, 175, 90, 0.2)" strokeWidth="1" strokeDasharray="3 3">
+              <line x1="10%" y1="20%" x2="25%" y2="40%" />
+              <line x1="25%" y1="40%" x2="40%" y2="15%" />
+              <line x1="40%" y1="15%" x2="60%" y2="35%" />
+              <line x1="60%" y1="35%" x2="80%" y2="20%" />
+              <line x1="25%" y1="40%" x2="35%" y2="70%" />
+              <line x1="60%" y1="35%" x2="70%" y2="65%" />
+              <line x1="70%" y1="65%" x2="88%" y2="55%" />
+            </g>
+            {/* Neural Nodes */}
+            <circle cx="10%" cy="20%" r="3" fill="#d4af5a" opacity="0.6" />
+            <circle cx="25%" cy="40%" r="4" fill="#d4af5a" opacity="0.8" />
+            <circle cx="40%" cy="15%" r="3" fill="#38bdf8" opacity="0.6" />
+            <circle cx="60%" cy="35%" r="4.5" fill="#d4af5a" opacity="0.9" />
+            <circle cx="80%" cy="20%" r="3" fill="#38bdf8" opacity="0.6" />
+            <circle cx="35%" cy="70%" r="3" fill="#f59e0b" opacity="0.6" />
+            <circle cx="70%" cy="65%" r="3.5" fill="#d4af5a" opacity="0.7" />
+            <circle cx="88%" cy="55%" r="3" fill="#38bdf8" opacity="0.6" />
+          </svg>
+        </div>
+
+        <div className="relative mx-auto max-w-[1380px] px-5 pb-16 pt-12 lg:px-10 lg:pb-24 lg:pt-20">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             {/* Left Column: Heading, Value Prop, Search */}
             <div className="animate-rise">
@@ -70,16 +102,16 @@ export function HomePage() {
               </div>
 
               {/* Main Headline */}
-              <h1 className="display mt-5 text-[clamp(2rem,5vw,4.5rem)] font-extrabold leading-[1.05] tracking-tight text-foreground break-words">
-                Projects Built by <br />
+              <h1 className="display mt-5 text-[clamp(2.4rem,5.6vw,4.8rem)] font-extrabold leading-[1.04] tracking-tight text-foreground break-words">
+                Ideas Built by <br />
                 <span className="text-primary inline-flex items-center gap-2">
-                  Git Club Members<span className="font-mono text-accent">.</span>
+                  Git Club<span className="font-mono text-accent">.</span>
                 </span>
               </h1>
 
-              {/* Subtitle - crystal clear purpose */}
+              {/* Subtitle - Project-First exact copy */}
               <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground">
-                An open engineering showcase of student-built software, developer tools, and campus technical initiatives engineered by students at CHARUSAT.
+                Explore what Git Club members build — from web apps and AI systems to IoT and creative technology.
               </p>
 
               {/* Search quick jump */}
@@ -113,24 +145,25 @@ export function HomePage() {
                   <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
                 </Link>
 
+                <Link
+                  href="/featured"
+                  data-testid="link-hero-featured"
+                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground hover:border-primary/50 hover:bg-muted transition-colors"
+                >
+                  <span>Featured Projects</span>
+                  <ArrowRight size={13} className="text-muted-foreground" />
+                </Link>
+
                 <a
                   href="https://github.com/gitclub-charusat"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground hover:border-primary/50 hover:bg-muted transition-colors"
-                >
-                  <Github size={15} />
-                  <span>GitHub Org</span>
-                  <ArrowUpRight size={13} className="text-muted-foreground" />
-                </a>
-
-                <Link
-                  href="/featured"
                   className="inline-flex items-center gap-1.5 px-3 py-2.5 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  <span>Featured Case Studies</span>
-                  <ArrowRight size={13} />
-                </Link>
+                  <Github size={15} />
+                  <span>GitHub</span>
+                  <ArrowUpRight size={12} className="text-muted-foreground" />
+                </a>
               </div>
 
               {/* Institutional Context */}
