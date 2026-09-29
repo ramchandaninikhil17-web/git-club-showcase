@@ -1,12 +1,26 @@
 {
-  "name": "git-club-project-showcase-root",
-  "version": "1.0.0",
-  "private": true,
+  "name": "workspace",
+  "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
-    "dev": "pnpm --prefix Git-Club-Project-Showcase dev",
-    "serve": "pnpm --prefix Git-Club-Project-Showcase serve",
-    "preview": "pnpm --prefix Git-Club-Project-Showcase preview",
-    "build": "pnpm --prefix Git-Club-Project-Showcase build",
-    "typecheck": "pnpm --prefix Git-Club-Project-Showcase typecheck"
+    "dev": "pnpm --filter @workspace/git-club-showcase run dev",
+    "serve": "pnpm --filter @workspace/git-club-showcase run serve",
+    "preview": "pnpm --filter @workspace/git-club-showcase run serve",
+    "preinstall": "node -e \"if (!/pnpm/.test(process.env.npm_config_user_agent || '')) { console.warn('Please use pnpm'); }\"",
+    "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "typecheck:libs": "tsc --build",
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
+  },
+  "packageManager": "pnpm@10.5.2",
+  "private": true,
+  "dependencies": {
+    "@replit/connectors-sdk": "^0.4.3"
+  },
+  "devDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "4.63.1",
+    "@tailwindcss/oxide-win32-x64-msvc": "^4.3.3",
+    "lightningcss-win32-x64-msvc": "^1.33.0",
+    "prettier": "^3.9.6",
+    "typescript": "~5.9.3"
   }
 }

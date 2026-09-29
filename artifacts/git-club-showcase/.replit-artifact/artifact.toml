@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Git Club Project Showcase"
+description = "A premium project discovery and case-study platform for CHARUSAT Git Club, helping visitors explore student-built work by technology, category, status, and team."
+version = "1.0.0"
+id = "artifacts/git-club-showcase"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23294
+
+[services.development]
+run = "pnpm --filter @workspace/git-club-showcase run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/git-club-showcase", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/git-club-showcase/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23294"
+BASE_PATH = "/"
