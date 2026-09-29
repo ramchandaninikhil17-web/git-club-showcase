@@ -62,9 +62,9 @@ export function ProjectCard({
     const rect = cardRef.current.getBoundingClientRect();
     const mouseX = ((e.clientX - rect.left) / rect.width) * 100;
     const mouseY = ((e.clientY - rect.top) / rect.height) * 100;
-    // Enhanced 3D tilt calculation
-    const x = ((e.clientY - rect.top) / rect.height - 0.5) * -12;
-    const y = ((e.clientX - rect.left) / rect.width - 0.5) * 12;
+    // Enhanced subtle 3D tilt calculation for crisp readability
+    const x = ((e.clientY - rect.top) / rect.height - 0.5) * -6;
+    const y = ((e.clientX - rect.left) / rect.width - 0.5) * 6;
     setTilt({ x, y, mouseX, mouseY, isHovered: true });
   };
 

@@ -133,13 +133,13 @@ export function HeroGitGraph() {
             </span>
             <span className="ml-2 font-bold text-foreground flex items-center gap-1.5">
               <GitBranch size={13} className="text-primary" />
-              <span>gitclub-charusat/graph-3d</span>
+              <span>gitclub-charusat/showcase</span>
             </span>
           </div>
 
           <div className="flex items-center gap-2 text-muted-foreground text-[11px]">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="hidden sm:inline font-medium text-foreground/80">3D Interactive Mesh</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            <span className="hidden sm:inline font-medium text-foreground/80">Interactive Git Graph</span>
           </div>
         </div>
 
@@ -147,7 +147,7 @@ export function HeroGitGraph() {
         <div className="preserve-3d relative mt-4 h-[260px] sm:h-[300px] w-full rounded-2xl bg-muted/40 border border-border/70 overflow-hidden">
           {/* 3D Floor Grid Plane */}
           <div
-            className="absolute inset-0 opacity-60 pointer-events-none animate-grid-glow"
+            className="absolute inset-0 opacity-50 pointer-events-none"
             style={{
               backgroundImage:
                 'linear-gradient(to right, rgba(212, 175, 90, 0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(212, 175, 90, 0.12) 1px, transparent 1px)',
@@ -216,14 +216,6 @@ export function HeroGitGraph() {
             <circle cx="50" cy="48" r="18" fill="none" stroke="rgba(212,175,90,0.2)" strokeDasharray="3 3" />
             <circle cx="50" cy="48" r="30" fill="none" stroke="rgba(212,175,90,0.12)" strokeDasharray="4 4" />
           </svg>
-
-          {/* Floating 3D Badge on Top Left */}
-          <div className="absolute top-3 left-3 layer-depth-3 animate-float-3d pointer-events-none">
-            <div className="flex items-center gap-1.5 rounded-full bg-card/90 border border-primary/40 px-2.5 py-1 text-[10px] font-bold text-primary shadow-lg backdrop-blur-md">
-              <Sparkles size={11} className="text-primary" />
-              <span>Campus Verified Stacks</span>
-            </div>
-          </div>
 
           {/* Interactive 3D Nodes */}
           {gitNodes.map((node) => {
